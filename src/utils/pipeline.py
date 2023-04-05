@@ -34,6 +34,7 @@ def read_file(path: str, config) -> list:
     return sents_list
 
 def parse_data(sents_list: list, tokenizer, config):
+    #tokenizer = AutoTokenizer.from_pretrained('xlm-roberta-large')
     for i in trange(len(sents_list)):
         sent = sents_list[i]
         x, y, y_mask = [], [], []
@@ -44,7 +45,10 @@ def parse_data(sents_list: list, tokenizer, config):
                 x.append(tokens[j])
                 y.append(config.NORMAL_TOKEN)
                 y_mask.append(0)
-            x.append(tokens[-1])
+            try:
+              x.append(tokens[-1])
+            except:
+              print(word,tokens,punc)  
             y.append(punc)
             y_mask.append(1)
         sents_list[i] = [d for d in zip(x, y, y_mask)]
