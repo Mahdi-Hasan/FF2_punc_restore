@@ -17,9 +17,9 @@ class Config(object):
     def __init__(self):
         super(Config, self).__init__()
         # Basic Settings
-        # google/electra-large-discriminator, funnel-transformer/large, facebook/bart-large,
+        # google/electra-large-discriminator,xlm-roberta-large, funnel-transformer/large, facebook/bart-large,
         # roberta-base, bert-base-uncased, facebook/bart-base
-        self.lan_model = 'google/electra-large-discriminator'
+        self.lan_model = 'xlm-roberta-large'
         self.lan_model_config = AutoConfig.from_pretrained(self.lan_model) if self.lan_model else None
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.X_TAG = 'X'
@@ -76,7 +76,7 @@ class Config(object):
         if not os.path.exists(self.RESULT_PATH): os.makedirs(self.RESULT_PATH)
         self.RESULT_POINT = os.path.join(self.RESULT_PATH, '{}.txt')
         # 8
-        self.batch_size = 4
+        self.batch_size = 2
         self.shuffle = True
         # set 0 for data generation in the main process
         self.num_workers = 0  # 4
