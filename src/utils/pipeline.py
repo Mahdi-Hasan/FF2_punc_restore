@@ -34,7 +34,7 @@ def read_file(path: str, config) -> list:
     return sents_list
 
 def parse_data(sents_list: list, tokenizer, config):
-    #tokenizer = AutoTokenizer.from_pretrained('xlm-roberta-large')
+    tokenizer = AutoTokenizer.from_pretrained('xlm-roberta-large')
     for i in trange(len(sents_list)):
         sent = sents_list[i]
         x, y, y_mask = [], [], []

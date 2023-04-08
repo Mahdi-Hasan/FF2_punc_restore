@@ -19,7 +19,7 @@ class Config(object):
         # Basic Settings
         # google/electra-large-discriminator,xlm-roberta-large, funnel-transformer/large, facebook/bart-large,
         # roberta-base, bert-base-uncased, facebook/bart-base
-        self.lan_model = 'xlm-roberta-large'
+        self.lan_model = 'google/electra-large-discriminator'
         self.lan_model_config = AutoConfig.from_pretrained(self.lan_model) if self.lan_model else None
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.X_TAG = 'X'
@@ -48,7 +48,7 @@ class Config(object):
         self.label2idx_dict = {'O': 0, 'COMMA': 1, 'PERIOD': 2, 'QUESTION': 3}
         self.idx2label_dict = {v: k for k, v in self.label2idx_dict.items()}
         # I/O
-        self.TRAIN_FILE = 'train'
+        self.TRAIN_FILE = 'train_bn500'
         self.VALID_FILE = 'dev'
         self.REF_TEST_FILE = 'test_ref'
         self.ASR_TEST_FILE = 'test_asr'

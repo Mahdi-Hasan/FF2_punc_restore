@@ -30,7 +30,7 @@ class ParallelEndecoderGraph(nn.Module):
         self.config = config
         self.decode_layer = BartModel(conf)
 
-        self.encode_layer = RobertaModel.from_pretrained(config.lan_model, hidden_dropout_prob=config.xfmr_hidden_dropout_prob)
+        self.encode_layer = ElectraModel.from_pretrained(config.lan_model, hidden_dropout_prob=config.xfmr_hidden_dropout_prob)
 
         fusion_in_features = config.lan_hidden_size + conf.d_model
 
