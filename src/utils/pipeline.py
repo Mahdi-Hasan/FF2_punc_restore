@@ -42,11 +42,11 @@ def parse_data(sents_list: list, tokenizer, config):
             word, punc = token_pun_pair.split('\t')
             tokens = tokenizer.tokenize(word)
             for j in range(len(tokens) - 1):
-                x.append(tokens[j])
+                x.append(tokenizer.convert_tokens_to_ids(tokens[i]))
                 y.append(config.NORMAL_TOKEN)
                 y_mask.append(0)
             try:
-              x.append(tokens[-1])
+              x.append(tokenizer.convert_tokens_to_ids(tokens[-1]))
             except:
               print(word,tokens,punc)  
             y.append(punc)
