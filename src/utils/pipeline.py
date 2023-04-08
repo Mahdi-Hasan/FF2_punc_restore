@@ -14,7 +14,7 @@ from torch.utils import data as torch_data
 # private
 from ..utils import save, load
 from ..models import  parallel_enc_dec
-
+from transformers import AutoTokenizer
 
 def read_file(path: str, config) -> list:
     with open(path, 'r', encoding='utf-8') as f:
