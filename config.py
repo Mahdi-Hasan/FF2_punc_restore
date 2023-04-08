@@ -48,8 +48,8 @@ class Config(object):
         self.label2idx_dict = {'O': 0, 'COMMA': 1, 'PERIOD': 2, 'QUESTION': 3}
         self.idx2label_dict = {v: k for k, v in self.label2idx_dict.items()}
         # I/O
-        self.TRAIN_FILE = 'train2012'
-        self.VALID_FILE = 'dev2012'
+        self.TRAIN_FILE = 'train2012_min'
+        self.VALID_FILE = 'dev2012_min'
         self.REF_TEST_FILE = 'test2011'
         self.ASR_TEST_FILE = 'test2011asr'
         self.CURR_PATH = os.path.dirname(os.path.realpath(__file__))
